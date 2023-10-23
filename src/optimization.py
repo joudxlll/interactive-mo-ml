@@ -5,6 +5,7 @@ import logging
 import os
 import time
 import random
+from OP import GeneticAlgorithm, SimulatedAnnealing
 
 import numpy as np
 
@@ -52,12 +53,12 @@ if __name__ == "__main__":
         for mode in ["indicators", "preferences"]:
             for preference_budget in preference_budgets:
                 for seed in [0, 1, 42]:
-                    single_objective(
-                        main_indicator=main_indicator,
-                        mode=mode,
-                        preference_budget=preference_budget,
-                        seed=seed,
-                    )
+                    # Call your optimization methods here instead of single_objective
+                    optimizer = GeneticAlgorithm(objective_function, population_size, mutation_rate, crossover_rate)
+                    best_solution = optimizer.run(max_generations)
+                    # Use the obtained best_solution in the remaining code if needed
+                    # ...
+
     # for mode in ["fair", "unfair"]:
     #     for preference_budget in preference_budgets:
     #         multi_objective(mode=mode, preference_budget=preference_budget)
