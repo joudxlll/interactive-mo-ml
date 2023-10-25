@@ -53,7 +53,7 @@ if __name__ == "__main__":
         for mode in ["indicators", "preferences"]:
             for preference_budget in preference_budgets:
                 for seed in [0, 1, 42]:
-                    # Call your optimization methods here instead of single_objective
+                    #instead of single_objective
                     optimizer = GeneticAlgorithm(objective_function, population_size, mutation_rate, crossover_rate)
                     best_solution = optimizer.run(max_generations)
                     # Use the obtained best_solution in the remaining code if needed
