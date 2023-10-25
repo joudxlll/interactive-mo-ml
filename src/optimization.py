@@ -65,3 +65,21 @@ if __name__ == "__main__":
 
 
 # %%
+# Collect hyperparameters and fitness values from GA optimization
+ga_hyperparameters = {...}  # Dictionary containing hyperparameters used in GA optimization
+ga_fitness_value = ...  # Fitness value obtained from GA optimization
+
+# Retrieve SMAC optimized hyperparameters
+scenario = Scenario({"run_obj": "quality", "runcount-limit": 1})
+hpo_facade = HPOFacade(scenario=scenario, rng=np.random.RandomState(0), tae_runner=RandomModel())
+smac_hyperparameters = hpo_facade.optimize().get_dictionary()
+
+
+# Calculate fitness value using SMAC optimized hyperparameters
+smac_fitness_value = calculate_fitness(smac_hyperparameters)
+ga_fitness_value = objective_function(best_solution)
+# Compare fitness values
+if ga_fitness_value > smac_fitness_value:
+    print("GA optimization performed better with a fitness value of", ga_fitness_value)
+else:
+    print("SMAC optimization performed better with a fitness value of", smac_fitness_value)
