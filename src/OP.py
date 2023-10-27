@@ -1,5 +1,3 @@
-# Import necessary libraries
-from optimiz import GeneticAlgorithm, SimulatedAnnealing
 import random
 import math
 
